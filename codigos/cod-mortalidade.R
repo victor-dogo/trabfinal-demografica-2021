@@ -56,11 +56,16 @@ faixas_etarias <- c("0 a 4 anos", "5 a 9 anos", "10 a 14 anos",
                     "60 a 64 anos", "65 a 69 anos", "70 anos ou mais")
 
 tabela_taxas_especificas_mortalidade <- data.frame(faixas_etarias,
+                                                   vetor_pop_sjbv,
+                                                   vetor_obitos_sjbv,
                                                    TEM_vetor)
 
 knitr::kable(tabela_taxas_especificas_mortalidade,
              col.names = c("Faixas Etárias",
-                           "TEM"), "latex")
+                           "População",
+                           "Óbitos",
+                           "TEM"), 
+             "latex")
 
 taxas <- c("TBM", "TMI")
 

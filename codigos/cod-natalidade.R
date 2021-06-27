@@ -77,11 +77,17 @@ faixas_etarias <- c("15 a 19 anos", "20 a 24 anos", "25 a 29 anos",
                     "45 a 49 anos")
 
 tabela_taxas_especificas <- data.frame(faixas_etarias,
+                                       pop_total_fem_1549_anos,
+                                       nascidos_vivos,
+                                       nascidos_vivos_fem,
                                        TEF_vetor,
                                        TEF_vetor_fem)
 
 knitr::kable(tabela_taxas_especificas, 
              col.names = c("Faixas Etárias",
+                           "População Feminina",
+                           "Nascidos Vivos",
+                           "Nascidos Vivos (F)",
                            "TEF geral",
                            "TEF f"), "latex")
 
