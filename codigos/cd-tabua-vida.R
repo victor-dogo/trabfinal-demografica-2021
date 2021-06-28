@@ -81,7 +81,7 @@ npx <- function(vetor_pop, vetor_morte, l){
   for (ii in 1:17) {
     n_p_x <- c(n_p_x, (Lx[ii+1]/Lx[ii]))
   }
-  round(n_p_x, digits = 5)
+  n_p_x <- round(n_p_x, digits = 4)
   n_p_x[1] <- n_p_x[2] <- 1
   n_p_x[length(n_p_x)] <- NA
   n_p_x <- c(n_p_x, NA)
@@ -92,7 +92,7 @@ npx <- function(vetor_pop, vetor_morte, l){
 
 tabela_vida <- function(vetor_pop, vetor_morte, l){
   x <- c(0, 1, seq(5, 80, 5))
-  n <- c(1, 4, rep(5,16))
+  n <- c(1, 4, rep(5,15), "omega")
   nmx <- nmx(vetor_pop, vetor_morte)
   nqx <- nqx(vetor_pop, vetor_morte)
   ndxlx <- ndx_lx(vetor_pop, vetor_morte, l)
@@ -123,8 +123,8 @@ knitr::kable(tabela_apresentacao,
 ## Calculando tabela de vida e criando arquivo csv para referencia
 
 tabela_de_vida <- tabela_vida(vetor_povo, vetor_obitos, 100000)
-library(readr)
-write_csv2(tabela_de_vida, file="tabelas/tabela-vida-sjbv.csv")
+
+readr::write_csv2(tabela_de_vida, file="tabelas/tabela-vida-sjbv.csv")
 
 ## Apresentando tabela de vida
 
